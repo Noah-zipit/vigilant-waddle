@@ -1,0 +1,15 @@
+{
+  "name": "manga-recommender",
+  "version": "1.0.0",
+  "description": "Manga, Manhwa, and Anime recommendation system",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'No build step needed'"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  },
+  "devDependencies": {
+    "vercel": "^28.0.0"
+  }
+}
