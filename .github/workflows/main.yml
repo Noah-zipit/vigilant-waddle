@@ -1,0 +1,25 @@
+name: LXDE Docker Environment
+
+on:
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  setup-lxde:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Start LXDE container
+        run: |
+          docker run -d -p 6080:80 \
+            --name lxde-container \
+            dorowu/ubuntu-desktop-lxde-vnc:latest
+
+      - name: Wait for container to initialize
+        run: sleep 10
+
+      - name: Setup tmate session for remote access
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
